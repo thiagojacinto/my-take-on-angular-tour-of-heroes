@@ -17,4 +17,10 @@ export class HeroiService {
     this.mensagemService.adicionar("HeroiService: heróis resgatados.")
     return resposta;
   }
+
+  getHeroi(id: number): Observable<Heroi> {
+    const resposta = of(HEROIS.find(heroi => heroi.id === id));
+    this.mensagemService.adicionar(`HeroiService: herói selecionando resgatado, ID = ${id}`);
+    return resposta;
+  }
 }
