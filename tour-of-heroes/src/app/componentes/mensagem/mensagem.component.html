@@ -1,0 +1,8 @@
+<div *ngIf="mensagemService.paraLista().length">
+
+  <h2>Mensagens</h2>
+  <button class="clear"
+          (click)="mensagemService.limpar()">Limpar</button>
+  <div *ngFor='let mensagem of mensagemService.paraLista()'> {{mensagem}} </div>
+
+</div>
