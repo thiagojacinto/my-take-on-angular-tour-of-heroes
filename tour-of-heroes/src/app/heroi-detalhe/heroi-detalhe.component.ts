@@ -33,4 +33,9 @@ export class HeroiDetalheComponent implements OnInit {
     this.location.back();
   }
 
+  salvar(): void {
+    this.heroiService.atualizarHeroi(this.heroi)
+      .subscribe(() => this.voltar());
+  }
+
 }
