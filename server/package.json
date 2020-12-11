@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node_modules/.bin/json-server",
+  "scripts": {
+    "start": "json-server --watch db.json --routes rotas.json"
+  },
+  "keywords": [],
+  "author": "Thiago Jacintos",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}
