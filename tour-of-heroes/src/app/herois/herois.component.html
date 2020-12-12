@@ -13,5 +13,6 @@
     <a routerLink="/heroi/{{ heroi.id }}">
       <span class="badge">{{ heroi.id }}</span> {{ heroi.nome }}
     </a>
+    <button class="delete" title="Remover heroi" (click)="remover(heroi)">x</button>
   </li>
 </ul>

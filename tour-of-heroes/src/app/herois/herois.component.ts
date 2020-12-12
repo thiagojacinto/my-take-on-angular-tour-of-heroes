@@ -33,4 +33,9 @@ export class HeroisComponent implements OnInit {
       });
   }
 
+  remover(heroi: Heroi): void {
+    this.heroiService.removerHeroi(heroi)
+    .subscribe(() => this.herois = this.herois.filter((h) => h.id !== heroi.id));
+  }
+
 }

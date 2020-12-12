@@ -61,6 +61,17 @@ export class HeroiService {
       );
   }
 
+  removerHeroi(heroi: Heroi | number): Observable<Heroi> {
+    const id = typeof heroi === 'number' ? heroi : heroi.id;
+    const url = `${this.heroisUrl}/${id}`;
+
+    return this.http.delete<Heroi>(url, this.opcoesHttp)
+      .pipe(
+        tap(_ => this.logMensagem(`Herói removido: ID = ${id}`)),
+        catchError(this.lidarComErro<Heroi>("removerHeroi"))
+      );
+  }
+
   logMensagem(mensagem: string) {
     this.mensagemService.adicionar(`HeroiService: ${mensagem}`);
   }
