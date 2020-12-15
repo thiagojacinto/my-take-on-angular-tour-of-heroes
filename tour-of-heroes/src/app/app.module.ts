@@ -9,6 +9,7 @@ import { HeroiDetalheComponent } from './heroi-detalhe/heroi-detalhe.component';
 import { MensagemComponent } from './componentes/mensagem/mensagem.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
+import { HeroiBuscaComponent } from './heroi-busca/heroi-busca.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DashboardComponent } from './componentes/dashboard/dashboard.component'
     HeroisComponent,
     HeroiDetalheComponent,
     MensagemComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroiBuscaComponent
   ],
   imports: [
     BrowserModule,

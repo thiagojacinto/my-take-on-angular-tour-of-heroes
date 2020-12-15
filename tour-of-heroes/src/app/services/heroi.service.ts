@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Heroi } from '../utilidades/heroi.interface';
 import { HEROIS } from '../utilidades/herois.mock';
@@ -69,6 +69,22 @@ export class HeroiService {
       .pipe(
         tap(_ => this.logMensagem(`Herói removido: ID = ${id}`)),
         catchError(this.lidarComErro<Heroi>("removerHeroi"))
+      );
+  }
+
+  procurarHeroi(nome: string): Observable<Heroi[]> {
+    if (!nome.trim()) {
+      return of([]);
+    }
+    const url = `${this.heroisUrl}/?nome=${nome}`
+    return this.http.get<Heroi[]>(url)
+      .pipe(
+        tap(
+          x => x.length 
+            ? this.logMensagem(`Herói(s) encontra(s) com nome '${nome}'`) 
+            : this.logMensagem(`Não foi encontrado nenhum Herói com nome '${nome}'`)
+        ),
+        catchError(this.lidarComErro<Heroi[]>("procurarHeroi", []))
       );
   }
 

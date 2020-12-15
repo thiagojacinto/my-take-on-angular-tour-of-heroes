@@ -2,7 +2,7 @@
   "herois": [
     {
       "id": 11,
-      "nome": "Pantera"
+      "nome": "Pantera Negra"
     },
     {
       "id": 12,
@@ -37,8 +37,8 @@
       "nome": "Ramonda"
     },
     {
-      "id": 20,
-      "nome": "Zuri"
+      "nome": "Zuri",
+      "id": 20
     }
   ]
 }
