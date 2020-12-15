@@ -76,7 +76,7 @@ export class HeroiService {
     if (!nome.trim()) {
       return of([]);
     }
-    const url = `${this.heroisUrl}/?nome=${nome}`
+    const url = `${this.heroisUrl}/?q=${nome}`
     return this.http.get<Heroi[]>(url)
       .pipe(
         tap(
