@@ -26,7 +26,7 @@ export class HeroiService {
   getHerois(): Observable<Heroi[]> {
     // const resposta = of(HEROIS);
     const resposta = this.http.get<Heroi[]>(this.heroisUrl).pipe(
-      tap((_) => this.logMensagem('heróis resgatados.')),
+      tap(() => this.logMensagem('heróis resgatados.')),
       catchError(this.lidarComErro<Heroi[]>('getHerois', []))
     );
 
@@ -38,7 +38,7 @@ export class HeroiService {
 
     // const resposta = of(HEROIS.find((heroi) => heroi.id === id));
     const resposta = this.http.get<Heroi>(url).pipe(
-      tap((_) => this.logMensagem(`herói selecionando resgatado, ID = ${id}`)),
+      tap(() => this.logMensagem(`herói selecionando resgatado, ID = ${id}`)),
       catchError(this.lidarComErro<Heroi>(`getHeroi com id = ${id}`))
     );
 
@@ -48,7 +48,7 @@ export class HeroiService {
   atualizarHeroi(heroi: Heroi): Observable<any> {
     const url = `${this.heroisUrl}/${heroi.id}`;
     return this.http.put(url, heroi, this.opcoesHttp).pipe(
-      tap((_) => this.logMensagem(`herói id = ${heroi.id} foi atualizado`)),
+      tap(() => this.logMensagem(`herói id = ${heroi.id} foi atualizado`)),
       catchError(this.lidarComErro<any>('atualizarHeroi'))
     );
   }
